@@ -1,20 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="7" total="8" passed="1" failed="0" skipped="0">
+<testng-results ignored="9" total="10" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-23T21:33:03 EET" name="Default suite" finished-at="2024-10-23T21:33:06 EET" duration-ms="3145">
+  <suite started-at="2024-10-27T21:46:18 EET" name="Default suite" finished-at="2024-10-27T21:46:25 EET" duration-ms="6607">
     <groups>
     </groups>
-    <test started-at="2024-10-23T21:33:03 EET" name="Default test" finished-at="2024-10-23T21:33:06 EET" duration-ms="3145">
+    <test started-at="2024-10-27T21:46:18 EET" name="Default test" finished-at="2024-10-27T21:46:25 EET" duration-ms="6607">
       <class name="myTestcases">
-        <test-method is-config="true" signature="mySetup()[pri:0, instance:myTestcases@18920cc]" started-at="2024-10-23T21:33:03 EET" name="mySetup" finished-at="2024-10-23T21:33:05 EET" duration-ms="2393" status="PASS">
+        <test-method is-config="true" signature="mySetup()[pri:0, instance:myTestcases@72c28d64]" started-at="2024-10-27T21:46:18 EET" name="mySetup" finished-at="2024-10-27T21:46:21 EET" duration-ms="2863" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mySetup -->
-        <test-method signature="RandomlyChangeTheLanguage()[pri:8, instance:myTestcases@18920cc]" started-at="2024-10-23T21:33:05 EET" name="RandomlyChangeTheLanguage" finished-at="2024-10-23T21:33:06 EET" duration-ms="722" status="PASS">
+        <test-method signature="CheckTheSortOption()[pri:10, instance:myTestcases@72c28d64]" started-at="2024-10-27T21:46:21 EET" name="CheckTheSortOption" finished-at="2024-10-27T21:46:25 EET" duration-ms="3720" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <div class="MuiButtonBase-root Mui-disabled MuiChip-root MuiChip-filled Mui-disabled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault __ds__comp   muirtl-9uj8zk" tabindex="-1" role="button" aria-disabled="true" data-testid="srp_sort_LOWEST_PRICE">...</div> is not clickable at point (911, 210). Other element would receive the click: <div class="__ds__comp undefined MuiBox-root muirtl-16avh">...</div>
+  (Session info: chrome=130.0.6723.70)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2287dee64cf34cea0d964643d1ef711a, clickElement {id=f.E0381B29FB1BF2E0741BE7E1DCD99644.d.C4C7F54AE9871553E075A94B8AB18DA2.e.3699}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.70, chrome: {chromedriverVersion: 130.0.6723.69 (3ec172b971b9..., userDataDir: C:\Users\asaqa\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63624}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63624/devtoo..., se:cdpVersion: 130.0.6723.70, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (2287dee64cf34cea0d964643d1ef711a)] -> xpath: //div[@data-testid='srp_sort_LOWEST_PRICE']]
+Session ID: 2287dee64cf34cea0d964643d1ef711a]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <div class="MuiButtonBase-root Mui-disabled MuiChip-root MuiChip-filled Mui-disabled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault __ds__comp   muirtl-9uj8zk" tabindex="-1" role="button" aria-disabled="true" data-testid="srp_sort_LOWEST_PRICE">...</div> is not clickable at point (911, 210). Other element would receive the click: <div class="__ds__comp undefined MuiBox-root muirtl-16avh">...</div>
+  (Session info: chrome=130.0.6723.70)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2287dee64cf34cea0d964643d1ef711a, clickElement {id=f.E0381B29FB1BF2E0741BE7E1DCD99644.d.C4C7F54AE9871553E075A94B8AB18DA2.e.3699}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 130.0.6723.70, chrome: {chromedriverVersion: 130.0.6723.69 (3ec172b971b9..., userDataDir: C:\Users\asaqa\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63624}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63624/devtoo..., se:cdpVersion: 130.0.6723.70, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (2287dee64cf34cea0d964643d1ef711a)] -> xpath: //div[@data-testid='srp_sort_LOWEST_PRICE']]
+Session ID: 2287dee64cf34cea0d964643d1ef711a
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at myTestcases.CheckTheSortOption(myTestcases.java:200)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- RandomlyChangeTheLanguage -->
+        </test-method> <!-- CheckTheSortOption -->
       </class> <!-- myTestcases -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

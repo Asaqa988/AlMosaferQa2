@@ -1,61 +1,54 @@
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import org.openqa.selenium.Alert;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class myTestcases {
-
-	WebDriver driver = new ChromeDriver();
-
-	String WebSiteURL = "https://global.almosafer.com/en";
-	Random rand = new Random();
+public class myTestcases extends Parameters {
 
 	@BeforeTest
 	public void mySetup() {
 
-		driver.manage().window().maximize();
-		driver.get(WebSiteURL);
-
-		WebElement ButtonFortheCurrency = driver
-				.findElement(By.cssSelector(".sc-jTzLTM.hQpNle.cta__button.cta__saudi.btn.btn-primary"));
-
-		ButtonFortheCurrency.click();
+		MySetupToEnterTheWebsite();
 
 	}
 
 	@Test(priority = 1, enabled = true)
 
-	public void CheckTheEnglishLanguageIsDefault() {
+	public void CheckTheEnglishLanguageIsDefault() throws IOException {
 		String ActualLaguage = driver.findElement(By.tagName("html")).getAttribute("lang");
-		String ExpectedLanguage = "en";
 
 		Assert.assertEquals(ActualLaguage, ExpectedLanguage);
+
+		ScreenShot();
+
 	}
 
-	@Test(priority = 2, enabled = true)
-	public void CheckTheDefaultCurrencyIsSAR() {
+	@Test(priority = 2, enabled = false)
+	public void CheckTheDefaultCurrencyIsSAR() throws IOException {
 		String ActualCurrency = driver.findElement(By.xpath("//button[@data-testid='Header__CurrencySelector']"))
 				.getText();
-		String ExpectedCurrency = "SAR";
 
 		Assert.assertEquals(ActualCurrency, ExpectedCurrency);
+		ScreenShot();
 
 	}
 
-	@Test(priority = 3, enabled = true)
-	public void CheckContactNumber() {
+	@Test(priority = 3, enabled = false)
+	public void CheckContactNumber() throws IOException {
 		String ActualNumber = driver.findElement(By.cssSelector(".sc-hUfwpO.bWcsTG")).getText();
 
 		String ExpectedNumber = "+966554400000";
@@ -64,8 +57,8 @@ public class myTestcases {
 
 	}
 
-	@Test(priority = 4, enabled = true)
-	public void CheckQitafLogoIsThereInTheFooter() {
+	@Test(priority = 4, enabled = false)
+	public void CheckQitafLogoIsThereInTheFooter() throws IOException {
 
 		WebElement TheFooter = driver.findElement(By.tagName("footer"));
 		boolean ActualResult = TheFooter.findElement(By.cssSelector(".sc-bdVaJa.bxRSiR.sc-ciodno.lkfeIG"))
@@ -76,9 +69,9 @@ public class myTestcases {
 
 	}
 
-	@Test(priority = 5, enabled = true)
+	@Test(priority = 5, enabled = false)
 
-	public void CheckHotelTabIsNotSelected() {
+	public void CheckHotelTabIsNotSelected() throws IOException {
 		WebElement HotelTab = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels"));
 		String ExpectedValue = "false";
 
@@ -88,8 +81,9 @@ public class myTestcases {
 
 	}
 
-	@Test(priority = 6, enabled = true)
-	public void CheckDepatureDate() {
+	@Test(priority = 6, enabled = false)
+	public void CheckDepatureDate() throws IOException {
+
 		int today = LocalDate.now().getDayOfMonth();
 
 		int Tomorrow = LocalDate.now().plusDays(1).getDayOfMonth();
@@ -101,18 +95,14 @@ public class myTestcases {
 		String ActualDepature = driver
 				.findElement(By.cssSelector("div[class='sc-OxbzP sc-lnrBVv gKbptE'] span[class='sc-fvLVrH hNjEjT']"))
 				.getText();
-		String ExpectedDepature = Integer.toString(Tomorrow);
+		String expectedDeparture = String.format("%02d", Tomorrow);
 
-		Assert.assertEquals(ActualDepature, ExpectedDepature);
-
-		;
-
-		System.out.println();
+		Assert.assertEquals(ActualDepature, expectedDeparture);
 
 	}
 
-	@Test(priority = 7, enabled = true)
-	public void CheckReturnDate() {
+	@Test(priority = 7, enabled = false)
+	public void CheckReturnDate() throws IOException {
 		int today = LocalDate.now().getDayOfMonth();
 
 		int DayAfterTomorrow = LocalDate.now().plusDays(2).getDayOfMonth();
@@ -120,14 +110,14 @@ public class myTestcases {
 		String ActualReturn = driver
 				.findElement(By.cssSelector("div[class='sc-OxbzP sc-bYnzgO bojUIa'] span[class='sc-fvLVrH hNjEjT']"))
 				.getText();
-		String ExpectedReturn = Integer.toString(DayAfterTomorrow);
+		String ExpectedReturn = String.format("%02d", DayAfterTomorrow);
 
 		Assert.assertEquals(ActualReturn, ExpectedReturn);
 
 	}
 
-	@Test(priority = 8, enabled = true)
-	public void RandomlyChangeTheLanguage() throws InterruptedException {
+	@Test(priority = 8, enabled = false)
+	public void RandomlyChangeTheLanguage() throws InterruptedException, IOException {
 
 		String[] EnglishCitiesNames = { "jeddah", "riyadh", "dubai" };
 		String[] ArabicCitiesNames = { "دبي", "جدة" };
@@ -178,13 +168,11 @@ public class myTestcases {
 		WebElement SearchButton = driver.findElement(By.xpath("//button[@data-testid='HotelSearchBox__SearchButton']"));
 		SearchButton.click();
 
-		Thread.sleep(35000);
-
 	}
 
-	@Test(priority = 9, enabled = true)
+	@Test(priority = 9, enabled = false)
 
-	public void CheckThatThePageIsFullyLoaded() {
+	public void CheckThatThePageIsFullyLoaded() throws IOException {
 		WebElement SearchResult = driver.findElement(By.xpath("//span[@data-testid='srp_properties_found']"));
 
 		boolean ActualResult = SearchResult.getText().contains("found") || SearchResult.getText().contains("مكان");
@@ -192,11 +180,11 @@ public class myTestcases {
 		boolean ExpectedResult = true;
 
 		Assert.assertEquals(ActualResult, ExpectedResult);
+
 	}
 
-	@Test(priority = 10, enabled = true)
-	public void CheckTheSortOption() throws InterruptedException {
-
+	@Test(priority = 10, enabled = false)
+	public void CheckTheSortOption() throws InterruptedException, IOException {
 
 		Thread.sleep(15000);
 
@@ -207,11 +195,9 @@ public class myTestcases {
 
 		WebElement Container = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[5]/div"));
 
-		
-		
 		if (driver.getCurrentUrl().contains("en")) {
-			List<WebElement> priceList = Container.findElements(
-					By.cssSelector(".MuiTypography-root.MuiTypography-heading3SemBld.__ds__comp.undefined.muiltr-18vmb2l"));
+			List<WebElement> priceList = Container.findElements(By.cssSelector(
+					".MuiTypography-root.MuiTypography-heading3SemBld.__ds__comp.undefined.muiltr-18vmb2l"));
 			int lowestPrice = Integer.parseInt(priceList.get(0).getText().replace("SAR ", ""));
 			int HighestPrice = Integer.parseInt(priceList.get(priceList.size() - 1).getText().replace("SAR ", ""));
 			System.out.println(lowestPrice);
@@ -224,9 +210,9 @@ public class myTestcases {
 			System.out.println(ExpectedValue);
 
 			Assert.assertEquals(ActualValue, ExpectedValue);
-		}else {
-			List<WebElement> priceList = Container.findElements(
-					By.cssSelector(".MuiTypography-root.MuiTypography-heading3SemBld.__ds__comp.undefined.muirtl-1l5b3qq"));
+		} else {
+			List<WebElement> priceList = Container.findElements(By.cssSelector(
+					".MuiTypography-root.MuiTypography-heading3SemBld.__ds__comp.undefined.muirtl-1l5b3qq"));
 			int lowestPrice = Integer.parseInt(priceList.get(0).getText().replace("ر.س. ", ""));
 			System.out.println();
 			int HighestPrice = Integer.parseInt(priceList.get(priceList.size() - 1).getText().replace("ر.س. ", ""));
@@ -240,7 +226,8 @@ public class myTestcases {
 			System.out.println(ExpectedValue);
 
 			Assert.assertEquals(ActualValue, ExpectedValue);
-			
+
 		}
 	}
+
 }

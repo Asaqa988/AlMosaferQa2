@@ -3,15 +3,13 @@ public class hhhh {
 
 	public static void main(String[] args) {
 		
-		String myname = "ahmad";
+		String mynumber = "10" ; 
 		
-		if(myname.equals("ahmad")&&myname.startsWith("a")) {
-			System.out.println("yes");
-		}else {
-			System.out.println("hi");
-		}
-
-
+		System.out.println(Integer.parseInt(mynumber)+10);
+		
+		
 	}
+		
+
 
 }

@@ -6,8 +6,7 @@
       <class name="myTestcases">
         <methods>
           <include name="mySetup"/>
-          <include name="CheckReturnDate"/>
-          <include name="CheckDepatureDate"/>
+          <include name="CheckTheEnglishLanguageIsDefault"/>
         </methods>
       </class> <!-- myTestcases -->
     </classes>

@@ -54,7 +54,7 @@ public class Parameters {
 	
 	
 	public void SortOptionChecker() {
-		WebElement Container = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[5]/div"));
+		WebElement Container = driver.findElement(By.cssSelector(".__ds__comp.undefined.MuiBox-root.muiltr-1smo8f0"));
 
 		if (driver.getCurrentUrl().contains("en")) {
 			List<WebElement> priceList = Container.findElements(By.cssSelector(
@@ -72,6 +72,7 @@ public class Parameters {
 
 			Assert.assertEquals(ActualValue, ExpectedValue);
 		} else {
+	
 			List<WebElement> priceList = Container.findElements(By.cssSelector(
 					".MuiTypography-root.MuiTypography-heading3SemBld.__ds__comp.undefined.muirtl-1l5b3qq"));
 			int lowestPrice = Integer.parseInt(priceList.get(0).getText().replace("ر.س. ", ""));
